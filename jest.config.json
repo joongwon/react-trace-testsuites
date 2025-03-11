@@ -1,0 +1,7 @@
+{
+  "testEnvironment": "jsdom",
+  "extensionsToTreatAsEsm": [".jsx"],
+  "transform": {
+    "\\.[jt]sx?$": "babel-jest"
+  }
+}
