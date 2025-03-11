@@ -1,22 +1,22 @@
 import React from "react";
 
 function C() {
-  return <>C</>;
+  return <div>C</div>;
 }
 function B() {
   return (
-    <>
+    <div>
       B
       <C />
-    </>
+    </div>
   );
 }
 function A() {
   return (
-    <>
+    <div>
       A
       <B />
-    </>
+    </div>
   );
 }
 
