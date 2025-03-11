@@ -7,6 +7,8 @@ import Inf from "./inf";
 import Retry from "./retry";
 import Rerender from "./rerender";
 import ParentChild from "./parentChild";
+import Button from "./button";
+import ButtonState from "./buttonState";
 
 function App() {
   return (
@@ -47,6 +49,17 @@ function App() {
               </li>
             </ul>
           </li>
+          <li>
+            Side Effects Testsuites
+            <ul>
+              <li>
+                <Link to="/side-effect/button">Button</Link>
+              </li>
+              <li>
+                <Link to="/side-effect/button-state">Button State</Link>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <Routes>
@@ -58,6 +71,8 @@ function App() {
         <Route path="/render-cycle/retry" element={<Retry />} />
         <Route path="/render-cycle/rerender" element={<Rerender />} />
         <Route path="/render-cycle/parent-child" element={<ParentChild />} />
+        <Route path="/side-effect/button" element={<Button />} />
+        <Route path="/side-effect/button-state" element={<ButtonState />} />
       </Routes>
     </>
   );
