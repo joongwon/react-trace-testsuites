@@ -63,16 +63,22 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        <Route path="/" element={<h1>React-tRrace Testsuites</h1>} />
-        <Route path="/view-structure/abc" element={<ABC />} />
-        <Route path="/view-structure/chain" element={<Chain />} />
-        <Route path="/view-structure/binary-tree" element={<Binary />} />
-        <Route path="/render-cycle/inf" element={<Inf />} />
-        <Route path="/render-cycle/retry" element={<Retry />} />
-        <Route path="/render-cycle/rerender" element={<Rerender />} />
-        <Route path="/render-cycle/parent-child" element={<ParentChild />} />
-        <Route path="/side-effect/button" element={<Button />} />
-        <Route path="/side-effect/button-state" element={<ButtonState />} />
+        <Route index element={<h1>React-tRrace Testsuites</h1>} />
+        <Route path="view-structure">
+          <Route path="abc" element={<ABC />} />
+          <Route path="chain" element={<Chain />} />
+          <Route path="binary-tree" element={<Binary />} />
+        </Route>
+        <Route path="render-cycle">
+          <Route path="inf" element={<Inf />} />
+          <Route path="retry" element={<Retry />} />
+          <Route path="rerender" element={<Rerender />} />
+          <Route path="parent-child" element={<ParentChild />} />
+        </Route>
+        <Route path="side-effect">
+          <Route path="button" element={<Button />} />
+          <Route path="button-state" element={<ButtonState />} />
+        </Route>
       </Routes>
     </>
   );
