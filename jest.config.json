@@ -3,5 +3,6 @@
   "extensionsToTreatAsEsm": [".jsx"],
   "transform": {
     "\\.[jt]sx?$": "babel-jest"
-  }
+  },
+  "clearMocks": true
 }
