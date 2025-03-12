@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Retry from "./retry";
+import NoSideEffects from "./noSideEffects";
 import print from "./print";
 
 jest.mock("./print", () => ({
@@ -9,12 +9,12 @@ jest.mock("./print", () => ({
   default: jest.fn(),
 }));
 
-test("Retry renders counter with value 25", () => {
+test("No side effects implies not re-render", () => {
   print.mockClear();
 
-  const { container } = render(<Retry />);
+  const { container } = render(<NoSideEffects />);
 
-  expect(container).toHaveTextContent("25");
+  expect(container).toHaveTextContent("42");
   expect(print).toHaveBeenCalledTimes(1);
-  expect(print.mock.calls[0][0]).toBe("25");
+  expect(print.mock.calls[0][0]).toBe("42");
 });

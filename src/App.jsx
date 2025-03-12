@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Chain from "./chain";
 import Binary from "./binary";
 import ABC from "./abc";
+import NoSideEffects from "./noSideEffects";
 import Inf from "./inf";
 import Retry from "./retry";
 import Rerender from "./rerender";
@@ -36,16 +37,29 @@ function App() {
             Render Cycle Testsuites
             <ul>
               <li>
-                <Link to="/render-cycle/inf">Inf</Link>
+                <Link to="/render-cycle/no-side-effects">
+                  No re-render when side effect is absent
+                </Link>
               </li>
               <li>
-                <Link to="/render-cycle/retry">Retry</Link>
+                <Link to="/render-cycle/inf">
+                  Infinite retries when top-level sets are unguarded
+                </Link>
               </li>
               <li>
-                <Link to="/render-cycle/rerender">Rerender</Link>
+                <Link to="/render-cycle/retry">
+                  No re-render with top-level sets
+                </Link>
               </li>
               <li>
-                <Link to="/render-cycle/parent-child">Parent Child</Link>
+                <Link to="/render-cycle/rerender">
+                  Re-render when sets are called in an Effect
+                </Link>
+              </li>
+              <li>
+                <Link to="/render-cycle/parent-child">
+                  Re-render when parent re-renders
+                </Link>
               </li>
             </ul>
           </li>
@@ -70,6 +84,7 @@ function App() {
           <Route path="binary-tree" element={<Binary />} />
         </Route>
         <Route path="render-cycle">
+          <Route path="no-side-effects" element={<NoSideEffects />} />
           <Route path="inf" element={<Inf />} />
           <Route path="retry" element={<Retry />} />
           <Route path="rerender" element={<Rerender />} />
