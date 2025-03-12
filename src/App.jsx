@@ -1,109 +1,87 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import print from "./print";
-
-//let C _ =
-//  let (setter, setSetter) = useState^setter () in
-//  let (render, setRender) = useState^render 0 in
-//  (if render < 3 then setRender(fun r -> r + 1));
-//
-//  (if (setter <> ()) && (render < 3) then setter(fun _ -> 1));
-//  let (value, setValue) = useState^value 0 in
-//  (if (setter = ()) && (render < 3) then setSetter(fun _ -> setValue));
-//  print render;
-//  print value;
-//  value
-
-//function App() {
-//  const [setter, setSetter] = useState();
-//  const [render, setRender] = useState(0);
-//  if (render < 3) {
-//    setRender((r) => r + 1);
-//  }
-//
-//  if (setter && render < 3) {
-//    setter(() => 1);
-//  }
-//
-//  const [value, setValue] = useState(0);
-//  if (!setter && render < 3) {
-//    setSetter(() => setValue);
-//  }
-//  console.log("r", render);
-//  console.log("v", value);
-//  return value;
-//}
-
-//let App _ =
-//  print("start App()");
-//  let (data, setData) = useState(
-//    print("init");
-//    0
-//  ) in
-//  useEffect(print("effect"));
-//  print("end App()");
-//  [
-//    fun _ -> (
-//      print("start onClick");
-//      setData(fun d -> (
-//        print("start set1: d =");
-//        print(d);
-//        setData(fun d -> (
-//          print("start set2: d =");
-//          print(d);
-//          print("end set2: return");
-//          print(d - 1);
-//          d - 1
-//        ));
-//        print("end set1: return");
-//        print(d + 1);
-//        d + 1
-//      ));
-//      print("end onClick")
-//    ),
-//    data
-//  ]
-//;;
-//App ()
-
-//function App() {
-//  console.log("start App()");
-//  const [data, setData] = useState(() => {
-//    console.log("init");
-//    return 0;
-//  });
-//  useEffect(() => {
-//    console.log("effect");
-//  });
-//  console.log("end App()");
-//  return <button onClick={
-//    () => {
-//      console.log("start onClick");
-//      setData((d) => {
-//        console.log("start set1: d =", d);
-//        setData((d) => {
-//          console.log("start set2: d =", d);
-//          console.log("end set2: return", d - 1);
-//          return d - 1;
-//        });
-//        console.log("end set1: return", d + 1);
-//        return d + 1;
-//      });
-//      console.log("end onClick");
-//    }
-//  } />;
-//}
-
+import { Routes, Route, Link } from "react-router-dom";
+import Chain from "./chain";
+import Binary from "./binary";
+import ABC from "./abc";
+import Inf from "./inf";
+import Retry from "./retry";
+import Rerender from "./rerender";
+import ParentChild from "./parentChild";
+import Button from "./button";
+import ButtonState from "./buttonState";
 
 function App() {
-  print("Couter");
-  const [s, setS] = useState(0);
-  useEffect(() => {
-    print("Effect");
-    setS((s) => {if (s % 2 === 0) {print("Update"); return s + 1} else {return s}});
-  });
-  print("Return");
-  return <> {s} </>;
+  return (
+    <>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            View Structure Testsuites
+            <ul>
+              <li>
+                <Link to="/view-structure/abc">ABC</Link>
+              </li>
+              <li>
+                <Link to="/view-structure/chain">Chain</Link>
+              </li>
+              <li>
+                <Link to="/view-structure/binary-tree">Binary Tree</Link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Render Cycle Testsuites
+            <ul>
+              <li>
+                <Link to="/render-cycle/inf">Inf</Link>
+              </li>
+              <li>
+                <Link to="/render-cycle/retry">Retry</Link>
+              </li>
+              <li>
+                <Link to="/render-cycle/rerender">Rerender</Link>
+              </li>
+              <li>
+                <Link to="/render-cycle/parent-child">Parent Child</Link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Side Effects Testsuites
+            <ul>
+              <li>
+                <Link to="/side-effect/button">Button</Link>
+              </li>
+              <li>
+                <Link to="/side-effect/button-state">Button State</Link>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route index element={<h1>React-tRrace Testsuites</h1>} />
+        <Route path="view-structure">
+          <Route path="abc" element={<ABC />} />
+          <Route path="chain" element={<Chain />} />
+          <Route path="binary-tree" element={<Binary />} />
+        </Route>
+        <Route path="render-cycle">
+          <Route path="inf" element={<Inf />} />
+          <Route path="retry" element={<Retry />} />
+          <Route path="rerender" element={<Rerender />} />
+          <Route path="parent-child" element={<ParentChild />} />
+        </Route>
+        <Route path="side-effect">
+          <Route path="button" element={<Button />} />
+          <Route path="button-state" element={<ButtonState />} />
+        </Route>
+      </Routes>
+    </>
+  );
 }
 
 export default App;
