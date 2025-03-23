@@ -9,6 +9,8 @@ import Rerender from "./rerender";
 import ParentChild from "./parentChild";
 import Button from "./button";
 import ButtonState from "./buttonState";
+import Curious1 from "./curious1";
+import Curious2 from "./curious2";
 
 function App() {
   return (
@@ -58,6 +60,12 @@ function App() {
               <li>
                 <Link to="/side-effect/button-state">Button State</Link>
               </li>
+              <li>
+                <Link to="/side-effect/curious1">Curious1</Link>
+              </li>
+              <li>
+                <Link to="/side-effect/curious2">Curious2</Link>
+              </li>
             </ul>
           </li>
         </ul>
@@ -73,6 +81,8 @@ function App() {
         <Route path="/render-cycle/parent-child" element={<ParentChild />} />
         <Route path="/side-effect/button" element={<Button />} />
         <Route path="/side-effect/button-state" element={<ButtonState />} />
+        <Route path="/side-effect/curious1" element={<Curious1 />} />
+        <Route path="/side-effect/curious2" element={<Curious2 />} />
       </Routes>
     </>
   );
