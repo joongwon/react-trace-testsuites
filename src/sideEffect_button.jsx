@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import print from "./print";
 
 function C() {

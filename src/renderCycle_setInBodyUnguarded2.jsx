@@ -5,7 +5,7 @@ import { ErrorBoundary } from "react-error-boundary";
 function C() {
   const [s, setS] = useState(() => 0);
   setS((s) => s + 1);
-  return <div> {s} </div>;
+  return <div> </div>;
 }
 
 function Error() {
