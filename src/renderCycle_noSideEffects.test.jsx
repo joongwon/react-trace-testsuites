@@ -12,9 +12,7 @@ jest.mock("./print", () => ({
 test("No side effects implies not re-render", () => {
   print.mockClear();
 
-  const { container } = render(<NoSideEffects />);
+  render(<NoSideEffects />);
 
-  expect(container).toHaveTextContent("42");
   expect(print).toHaveBeenCalledTimes(1);
-  expect(print.mock.calls[0][0]).toBe("42");
 });

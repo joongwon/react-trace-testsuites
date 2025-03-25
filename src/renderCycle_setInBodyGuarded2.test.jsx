@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Retry from "./retry";
+import RenderCycleSetInBodyGuarded2 from "./renderCycle_setInBodyGuarded2";
 import print from "./print";
 
 jest.mock("./print", () => ({
@@ -12,9 +12,10 @@ jest.mock("./print", () => ({
 test("Retry renders counter with value 25", () => {
   print.mockClear();
 
-  const { container } = render(<Retry />);
+  render(<RenderCycleSetInBodyGuarded2 />);
 
-  expect(container).toHaveTextContent("25");
-  expect(print).toHaveBeenCalledTimes(1);
-  expect(print.mock.calls[0][0]).toBe("25");
+  for (let i = 0; i <= 25; ++i) {
+    expect(print.mock.calls[i][0]).toBe("C");
+  }
+  expect(print.mock.calls[26][0]).toBe("");
 });

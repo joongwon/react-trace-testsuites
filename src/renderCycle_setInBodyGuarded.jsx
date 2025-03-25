@@ -3,18 +3,15 @@ import { useState, useEffect } from "react";
 import print from "./print";
 
 function C() {
+  print("C");
   const [s, setS] = useState(() => 42);
-
-  // Guarded state update
   if (s === 42) {
     setS((s) => 43);
   }
-
   useEffect(() => {
-    print(`${s}`);
+    print("");
   });
-
-  return <div>{s}</div>;
+  return <div></div>;
 }
 
 export default function RenderCycleSetInBodyGuarded() {

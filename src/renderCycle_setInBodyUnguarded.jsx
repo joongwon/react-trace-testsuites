@@ -5,15 +5,8 @@ import print from "./print";
 
 function C() {
   const [s, setS] = useState(() => 42);
-
-  // Unguarded state update will cause infinite re-renders
   setS((s) => 43);
-
-  useEffect(() => {
-    print(`${s}`);
-  });
-
-  return <div>{s}</div>;
+  return <div></div>;
 }
 
 function Error() {

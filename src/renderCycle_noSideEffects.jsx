@@ -5,9 +5,9 @@ import print from "./print";
 function C() {
   const [s, _] = useState(() => 42);
   useEffect(() => {
-    print(`${s}`);
+    print("");
   });
-  return <div> {s} </div>;
+  return <div></div>;
 }
 
 export default function NoSideEffects() {
