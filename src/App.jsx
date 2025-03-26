@@ -8,7 +8,6 @@ import ABC from "./abc";
 
 // Render Cycle Tests
 import NoSideEffects from "./noSideEffects";
-import Retry from "./setInBodyGuarded2";
 import Rerender from "./setInEffectGuardedStepN";
 import ParentChild from "./parentChild";
 
@@ -20,6 +19,7 @@ import ButtonState from "./buttonState";
 import RenderCycleSetStateGuarded from "./setStateGuarded";
 import RenderCycleSetStateGuardedWithObj from "./setStateGuardedWithObj";
 import RenderCycleSetInBodyGuarded from "./setInBodyGuarded";
+import RenderCycleSetInBodyGuarded2 from "./setInBodyGuarded2";
 import RenderCycleSetInBodyUnguarded from "./setInBodyUnguarded";
 import RenderCycleSetInEffectStep1 from "./setInEffectStep1";
 import RenderCycleSetInEffectStep2 from "./setInEffectStep2";
@@ -89,13 +89,13 @@ function App() {
               </Link>
             </li>
             <li>
-              <Link to="/render-cycle/inf">
-                Infinite retries when top-level sets are unguarded
+              <Link to="/render-cycle/set-state-in-body-guarded">
+                Guarded setState in render phase
               </Link>
             </li>
             <li>
-              <Link to="/render-cycle/set-state-in-body-guarded">
-                Guarded setState in render phase
+              <Link to="/render-cycle/set-state-in-body-guarded2">
+                Guarded setState in render phase (2)
               </Link>
             </li>
             <li>
@@ -216,7 +216,7 @@ function App() {
               <Link to="/side-effect/event-handler">Event Handler Prints</Link>
             </li>
             <li>
-              <Link to="/event/counter">Counter with Limits</Link>
+              <Link to="/event/counter">Counter with Limits (3 tests)</Link>
             </li>
             <li>
               <Link to="/event/setter-in-setter">Setter in Setter</Link>
@@ -233,7 +233,6 @@ function App() {
         </Route>
         <Route path="render-cycle">
           <Route path="no-side-effects" element={<NoSideEffects />} />
-          <Route path="retry" element={<Retry />} />
           <Route path="rerender" element={<Rerender />} />
           <Route path="parent-child" element={<ParentChild />} />
 
@@ -241,6 +240,10 @@ function App() {
           <Route
             path="set-state-in-body-guarded"
             element={<RenderCycleSetInBodyGuarded />}
+          />
+          <Route
+            path="set-state-in-body-guarded2"
+            element={<RenderCycleSetInBodyGuarded2 />}
           />
           <Route
             path="set-state-in-body-unguarded"
