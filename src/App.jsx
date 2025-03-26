@@ -2,54 +2,53 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 // View Structure Tests
-import Chain from "./viewStructure_chain";
-import Binary from "./viewStructure_binary";
-import ABC from "./viewStructure_abc";
+import Chain from "./chain";
+import Binary from "./binary";
+import ABC from "./abc";
 
 // Render Cycle Tests
-import NoSideEffects from "./renderCycle_noSideEffects";
-import InfLoops from "./renderCycle_setInBodyUnguarded2";
-import Retry from "./renderCycle_setInBodyGuarded2";
-import Rerender from "./renderCycle_setInEffectGuardedStepN";
-import ParentChild from "./renderCycle_parentChild";
+import NoSideEffects from "./noSideEffects";
+import Retry from "./setInBodyGuarded2";
+import Rerender from "./setInEffectGuardedStepN";
+import ParentChild from "./parentChild";
 
 // Side Effect Tests
-import Button from "./sideEffect_button";
-import ButtonState from "./sideEffect_buttonState";
+import Button from "./button";
+import ButtonState from "./buttonState";
 
 // Render Cycle Tests
-import RenderCycleSetStateGuarded from "./renderCycle_setStateGuarded";
-import RenderCycleSetStateGuardedWithObj from "./renderCycle_setStateGuardedWithObj";
-import RenderCycleSetInBodyGuarded from "./renderCycle_setInBodyGuarded";
-import RenderCycleSetInBodyUnguarded from "./renderCycle_setInBodyUnguarded";
-import RenderCycleSetInEffectStep1 from "./renderCycle_setInEffectStep1";
-import RenderCycleSetInEffectStep2 from "./renderCycle_setInEffectStep2";
-import RenderCycleSetInEffectGuardedStep2 from "./renderCycle_setInEffectGuardedStep2";
-import RenderCycleSetInEffectTwiceStep1 from "./renderCycle_setInEffectTwiceStep1";
-import RenderCycleSetInEffectWithArgStep1 from "./renderCycle_setInEffectWithArgStep1";
-import RenderCycleSetInEffectWithArgStep2 from "./renderCycle_setInEffectWithArgStep2";
-import RenderCycleSetInEffectIndefinite from "./renderCycle_setInEffectIndefinite";
-import RenderCycleSetPassedStep2 from "./renderCycle_setPassedStep2";
-import RenderCycleSetPassedInvalidPhase from "./renderCycle_setPassedInvalidPhase";
-import RenderCycleSetPassedIndefinite from "./renderCycle_setPassedIndefinite";
-import RenderCycleUpdateObjNoRerender from "./renderCycle_updateObjNoRerender";
-import RenderCycleSetStateBeforeBind from "./renderCycle_setStateBeforeBind";
-import RenderCycleSiblingSetter from "./renderCycle_setSiblingDuringEffect";
+import RenderCycleSetStateGuarded from "./setStateGuarded";
+import RenderCycleSetStateGuardedWithObj from "./setStateGuardedWithObj";
+import RenderCycleSetInBodyGuarded from "./setInBodyGuarded";
+import RenderCycleSetInBodyUnguarded from "./setInBodyUnguarded";
+import RenderCycleSetInEffectStep1 from "./setInEffectStep1";
+import RenderCycleSetInEffectStep2 from "./setInEffectStep2";
+import RenderCycleSetInEffectGuardedStep2 from "./setInEffectGuardedStep2";
+import RenderCycleSetInEffectTwiceStep1 from "./setInEffectTwiceStep1";
+import RenderCycleSetInEffectWithArgStep1 from "./setInEffectWithArgStep1";
+import RenderCycleSetInEffectWithArgStep2 from "./setInEffectWithArgStep2";
+import RenderCycleSetInEffectIndefinite from "./setInEffectIndefinite";
+import RenderCycleSetPassedStep2 from "./setPassedStep2";
+import RenderCycleSetPassedInvalidPhase from "./setPassedInvalidPhase";
+import RenderCycleSetPassedIndefinite from "./setPassedIndefinite";
+import RenderCycleUpdateObjNoRerender from "./updateObjNoRerender";
+import RenderCycleSetStateBeforeBind from "./setStateBeforeBind";
+import RenderCycleSiblingSetter from "./setSiblingDuringEffect";
 
 // Component Tests
-import ComponentStateInRemoved from "./component_stateInRemoved";
-import ComponentStatePersistence from "./component_statePersistence";
-import ComponentCreateNew from "./component_createNew";
+import ComponentStateInRemoved from "./stateInRemoved";
+import ComponentStatePersistence from "./statePersistence";
+import ComponentCreateNew from "./createNew";
 
 // Side Effect Tests
-import SideEffectFlushQueue from "./sideEffect_flushQueue";
-import SideEffectChildEffects from "./sideEffect_childEffects";
-import SideEffectNestedViewOrder from "./sideEffect_nestedViewOrder";
-import SideEffectEventHandler from "./sideEffect_eventHandler";
+import SideEffectFlushQueue from "./flushQueue";
+import SideEffectChildEffects from "./childEffects";
+import SideEffectNestedViewOrder from "./nestedViewOrder";
+import SideEffectEventHandler from "./eventHandler";
 
 // Event Tests
-import EventCounter from "./event_counter";
-import EventSetterInSetter from "./event_setterInSetter";
+import EventCounter from "./counter";
+import EventSetterInSetter from "./setterInSetter";
 
 function App() {
   return (
@@ -285,7 +284,6 @@ function App() {
         </Route>
         <Route path="render-cycle">
           <Route path="no-side-effects" element={<NoSideEffects />} />
-          <Route path="inf" element={<InfLoops />} />
           <Route path="retry" element={<Retry />} />
           <Route path="rerender" element={<Rerender />} />
           <Route path="parent-child" element={<ParentChild />} />
