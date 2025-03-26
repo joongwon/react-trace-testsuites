@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Rerender from "./rerender";
+import Rerender from "./renderCycle_setInEffectGuardedStepN";
 import print from "./print";
 
 jest.mock("./print", () => ({

@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Binary from "./binary";
+import Binary from "./viewStructure_binary";
 
 test("Binary renders a binary tree structure", () => {
   const { container } = render(<Binary />);

@@ -14,8 +14,7 @@ test("Guarded top-level setState stops re-rendering", () => {
 
   render(<RenderCycleSetInBodyGuarded />);
 
-  expect(print.mock.calls[0][0]).toBe("C");
-  expect(print.mock.calls[1][0]).toBe("C");
-  expect(print.mock.calls[2][0]).toBe("");
+  expect(print.mock.calls.length).toBe(1);
+  expect(print.mock.calls[0][0]).toBe("");
 });
 

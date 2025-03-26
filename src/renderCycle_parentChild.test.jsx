@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ParentChild from "./parentChild";
+import ParentChild from "./renderCycle_parentChild";
 import print from "./print";
 
 jest.mock("./print", () => ({

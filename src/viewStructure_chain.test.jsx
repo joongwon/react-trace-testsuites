@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Chain from "./chain";
+import Chain from "./viewStructure_chain";
 
 test("Chain renders numbers from 5 to 0", () => {
   const { container } = render(<Chain />);

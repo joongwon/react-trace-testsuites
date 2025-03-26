@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import NoSideEffects from "./noSideEffects";
+import NoSideEffects from "./renderCycle_noSideEffects";
 import print from "./print";
 
 jest.mock("./print", () => ({

@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ABC from "./abc";
+import ABC from "./viewStructure_abc";
 
 test("ABC has A, B, and C", async () => {
   const { container } = render(<ABC />);

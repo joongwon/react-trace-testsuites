@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ButtonState from "./buttonState";
+import ButtonState from "./sideEffect_buttonState";
 import print from "./print";
 
 jest.mock("./print", () => ({
