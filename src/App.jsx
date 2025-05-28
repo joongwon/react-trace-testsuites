@@ -7,33 +7,35 @@ import Binary from "./binary";
 import ABC from "./abc";
 
 // Render Cycle Tests
-import NoSideEffects from "./noSideEffects";
-import Rerender from "./setInEffectGuardedStepN";
-import ParentChild from "./parentChild";
+import NoSideEffects from "./no_side_effect";
+import Rerender from "./set_in_effect_guarded_step_n_times2";
+import ParentChild from "./parent_child";
 
 // Side Effect Tests
 import Button from "./button";
-import ButtonState from "./buttonState";
+import ButtonState from "./button_state";
 
 // Render Cycle Tests
-import RenderCycleSetStateGuarded from "./setStateGuarded";
+import RenderCycleSetStateGuarded from "./set_in_effect_guarded_step_n_times";
 import RenderCycleSetStateGuardedWithObj from "./setStateGuardedWithObj";
-import RenderCycleSetInBodyGuarded from "./setInBodyGuarded";
-import RenderCycleSetInBodyGuarded2 from "./setInBodyGuarded2";
-import RenderCycleSetInBodyUnguarded from "./setInBodyUnguarded";
-import RenderCycleSetInEffectStep1 from "./setInEffectStep1";
-import RenderCycleSetInEffectStep2 from "./setInEffectStep2";
-import RenderCycleSetInEffectGuardedStep2 from "./setInEffectGuardedStep2";
+import RenderCycleSetInBodyGuarded from "./set_in_body_guarded_no_rerender";
+import RenderCycleSetInBodyGuarded2 from "./set_in_body_guarded_reread_count2";
+import RenderCycleSetInBodyGuarded3 from "./set_in_body_guarded_reread_count";
+import RenderCycleSetInBodyUnguarded from "./set_in_body_unguarded_nonterminate";
+import RenderCycleSetInEffectStep from "./no_set_in_effect_step_one_time";
+import RenderCycleSetInEffectStep1 from "./set_in_effect_step_one_time";
+import RenderCycleSetInEffectStep2 from "./set_in_effect_step_two_times";
+import RenderCycleSetInEffectGuardedStep2 from "./set_in_effect_guarded_step_two_times";
 import RenderCycleSetInEffectTwiceStep1 from "./setInEffectTwiceStep1";
 import RenderCycleSetInEffectWithArgStep1 from "./setInEffectWithArgStep1";
 import RenderCycleSetInEffectWithArgStep2 from "./setInEffectWithArgStep2";
-import RenderCycleSetInEffectIndefinite from "./setInEffectIndefinite";
+import RenderCycleSetInEffectIndefinite from "./set_in_effect_step_indefinitely";
 import RenderCycleSetPassedStep2 from "./setPassedStep2";
-import RenderCycleSetPassedInvalidPhase from "./setPassedInvalidPhase";
+import RenderCycleSetPassedInvalidPhase from "./set_passed_invalid_phase";
 import RenderCycleSetPassedIndefinite from "./setPassedIndefinite";
 import RenderCycleUpdateObjNoRerender from "./updateObjNoRerender";
-import RenderCycleSetStateBeforeBind from "./setStateBeforeBind";
-import RenderCycleSiblingSetter from "./setSiblingDuringEffect";
+import RenderCycleSetStateBeforeBind from "./set_state_before_bind";
+import RenderCycleSiblingSetter from "./set_sibling_state_during_effect";
 
 // Component Tests
 import ComponentStateInRemoved from "./stateInRemoved";
@@ -41,14 +43,13 @@ import ComponentStatePersistence from "./statePersistence";
 import ComponentCreateNew from "./createNew";
 
 // Side Effect Tests
-import SideEffectFlushQueue from "./flushQueue";
-import SideEffectChildEffects from "./childEffects";
-import SideEffectNestedViewOrder from "./nestedViewOrder";
-import SideEffectEventHandler from "./eventHandler";
+import SideEffectFlushQueue from "./effect_queue_gets_flushed_on_retry";
+import SideEffectChildEffects from "./child_view_effect_runs_even_idle_but_parent_rerenders";
+import SideEffectNestedViewOrder from "./nested_view_render_order";
+import SideEffectEventHandler from "./event_handler_prints";
 
 // Event Tests
 import EventCounter from "./counter";
-import EventSetterInSetter from "./setterInSetter";
 
 function App() {
   return (
@@ -246,6 +247,10 @@ function App() {
             element={<RenderCycleSetInBodyGuarded2 />}
           />
           <Route
+            path="set-state-in-body-guarded3"
+            element={<RenderCycleSetInBodyGuarded3 />}
+          />
+          <Route
             path="set-state-in-body-unguarded"
             element={<RenderCycleSetInBodyUnguarded />}
           />
@@ -258,6 +263,10 @@ function App() {
           <Route
             path="set-state-guarded-obj"
             element={<RenderCycleSetStateGuardedWithObj />}
+          />
+          <Route
+            path="no-set-in-effect-step"
+            element={<RenderCycleSetInEffectStep />}
           />
           <Route
             path="set-in-effect-step1"
@@ -343,7 +352,6 @@ function App() {
 
         <Route path="event">
           <Route path="counter" element={<EventCounter />} />
-          <Route path="setter-in-setter" element={<EventSetterInSetter />} />
         </Route>
       </Routes>
     </>
